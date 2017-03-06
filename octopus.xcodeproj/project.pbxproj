@@ -10,6 +10,7 @@
 		CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */; };
 		CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */; };
 		CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */; };
+		CEA25A931E68A227008FB6A6 /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA25A921E68A227008FB6A6 /* Keycode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8CEAFD1E646B2D00E3B034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CE8CEAFF1E646B2D00E3B034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA25A921E68A227008FB6A6 /* Keycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keycode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		CE8CEAF71E646B2C00E3B034 /* octopus */ = {
 			isa = PBXGroup;
 			children = (
+				CEA25A921E68A227008FB6A6 /* Keycode.swift */,
 				CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */,
 				CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */,
 				CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */,
@@ -129,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA25A931E68A227008FB6A6 /* Keycode.swift in Sources */,
 				CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +286,7 @@
 				CE8CEB041E646B2D00E3B034 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
