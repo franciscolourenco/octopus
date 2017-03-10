@@ -60,11 +60,13 @@ class Modal {
 
     func enter() {
         self.on = true
+        print("enter mode")
         Keyboard.keyDown(key: .command)
     }
 
     func exit() {
-        self.on = true
+        self.on = false
+        print("leave mode")
         Keyboard.keyUp(key: .command)
     }
     
@@ -76,18 +78,16 @@ class Modal {
             let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
             //            if type == .keyDown && keyCode == 0 {aa//            print(keyCode, event.getIntegerValueField(.eventSourceUserData))a
             if event.getIntegerValueField(.eventSourceUserData) != 1337 {
-                if UInt16(keyCode) == Keycode.tab.rawValue {
-                    if type == .keyDown {
+                if UInt16(keyCode) == Keycode.tab.rawValue  {
+                    if type == .keyDown && event.getIntegerValueField(.keyboardEventAutorepeat) == 0{
                         thisModal.enter()
-                        return nil
                     } else if type == .keyUp {
                         thisModal.exit()
-                        return nil
                     }
                     return nil
                 }
 
-                if thisModal.on {
+                if thisModal.on && type == .keyDown {
                     if let to = thisModal.bindings[KeyEvent(key: Keycode(rawValue: UInt16(keyCode))!, modifiers: [])] {
                         Keyboard.keyStroke(key: to.key, modifiers: to.modifiers )
                         return nil
@@ -130,7 +130,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-
+    var tabMode : Modal? = nil
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         // Insert code here to initialize your application
@@ -164,7 +165,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     func startTapping () {
-        var _ = Modal()
+        self.tabMode = Modal()
     }
 
 }
