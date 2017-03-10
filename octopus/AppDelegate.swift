@@ -10,6 +10,121 @@ import Cocoa
 import Foundation
 
 
+class Keyboard {
+    static func changeKey(key: Keycode, modifiers: CGEventFlags = [], keyDown: Bool) {
+        let event = CGEvent(keyboardEventSource: nil, virtualKey: key.rawValue, keyDown: keyDown)
+        event?.setIntegerValueField(.eventSourceUserData, value: 1337)
+        event?.flags = modifiers
+        event?.post(tap: .cgSessionEventTap)
+    }
+
+    static func keyDown(key: Keycode, modifiers: CGEventFlags = []) {
+        changeKey(key: key, modifiers: modifiers, keyDown: true)
+    }
+
+    static func keyUp(key: Keycode, modifiers: CGEventFlags = []) {
+        changeKey(key: key, modifiers: modifiers, keyDown: false)
+    }
+
+    static func keyStroke(key: Keycode, modifiers: CGEventFlags =  []) {
+        changeKey(key: key, modifiers: modifiers, keyDown: true)
+        changeKey(key: key, modifiers: modifiers, keyDown: false)
+    }
+}
+
+struct KeyEvent {
+    var key: Keycode
+    var modifiers: CGEventFlags
+}
+
+extension KeyEvent: Hashable {
+    var hashValue: Int {
+        var hash = key.hashValue
+        hash = hash ^ modifiers.rawValue.hashValue
+        return hash
+    }
+
+    static func ==(lhs: KeyEvent, rhs: KeyEvent) -> Bool {
+        return lhs.key == rhs.key && lhs.modifiers == rhs.modifiers
+    }
+}
+
+
+class Modal {
+    var on: Bool = false
+
+    var bindings: [KeyEvent: KeyEvent] = [
+        KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
+        KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift])
+    ]
+
+    func enter() {
+        self.on = true
+        Keyboard.keyDown(key: .command)
+    }
+
+    func exit() {
+        self.on = true
+        Keyboard.keyUp(key: .command)
+    }
+    
+    init() {
+
+        func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
+
+            let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
+            let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
+            //            if type == .keyDown && keyCode == 0 {aa//            print(keyCode, event.getIntegerValueField(.eventSourceUserData))a
+            if event.getIntegerValueField(.eventSourceUserData) != 1337 {
+                if UInt16(keyCode) == Keycode.tab.rawValue {
+                    if type == .keyDown {
+                        thisModal.enter()
+                        return nil
+                    } else if type == .keyUp {
+                        thisModal.exit()
+                        return nil
+                    }
+                    return nil
+                }
+
+                if thisModal.on {
+                    if let to = thisModal.bindings[KeyEvent(key: Keycode(rawValue: UInt16(keyCode))!, modifiers: [])] {
+                        Keyboard.keyStroke(key: to.key, modifiers: to.modifiers )
+                        return nil
+                    }
+                }
+            }
+
+            //                event.setIntegerValueField(.keyboardEventKeycode, value: keyCode)
+            return Unmanaged.passRetained(event)
+        }
+
+
+        let eventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.keyUp.rawValue)
+        guard let eventTap = CGEvent.tapCreate(
+            tap: .cgSessionEventTap,
+            place: .headInsertEventTap,
+            options: .defaultTap,
+            eventsOfInterest: CGEventMask(eventMask),
+            callback: myCGEventCallback,
+            userInfo: UnsafeMutableRawPointer(Unmanaged<AnyObject>.passUnretained(self).toOpaque())
+            ) else {
+                print("failed to create event tap")
+                return
+        }
+
+        let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
+        CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
+        CGEvent.tapEnable(tap: eventTap, enable: true)
+        CFRunLoopRun()
+
+    }
+}
+
+
+
+
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -17,6 +132,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+
         // Insert code here to initialize your application
         func acquirePrivileges() -> Bool {
             let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
@@ -41,67 +157,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             exit(1)
         }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
     func startTapping () {
-        func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, refcon: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
-
-//            var keyCode = event.getIntegerValueField(.keyboardEventKeycode)
-
-//            if type == .keyDown && keyCode == 0 {
-//            print(keyCode, event.getIntegerValueField(.eventSourceUserData))
-
-            if event.getIntegerValueField(.eventSourceUserData) != 1337 {
-
-                // Trying to replicate the example from the documentation but a normal 'a' is sent instead.
-                // https://developer.apple.com/reference/coregraphics/cgevent/1456564-init#discussion
-                
-                let event1 = CGEvent(keyboardEventSource: nil, virtualKey: Keycode.option, keyDown: true)
-                let event2 = CGEvent(keyboardEventSource: nil, virtualKey: Keycode.a, keyDown: true)
-                let event3 = CGEvent(keyboardEventSource: nil, virtualKey: Keycode.a, keyDown: false)
-                let event4 = CGEvent(keyboardEventSource: nil, virtualKey: Keycode.option, keyDown: false)
-                
-                event1?.setIntegerValueField(.eventSourceUserData, value: 1337)
-                event2?.setIntegerValueField(.eventSourceUserData, value: 1337)
-                event3?.setIntegerValueField(.eventSourceUserData, value: 1337)
-                event4?.setIntegerValueField(.eventSourceUserData, value: 1337)
-                
-                event1?.post(tap: .cgSessionEventTap)
-                event2?.post(tap: .cgSessionEventTap)
-                event3?.post(tap: .cgSessionEventTap)
-                event4?.post(tap: .cgSessionEventTap)
-
-           }
-//                if keyCode == 0 {
-//                    keyCode = Keycode.option
-//                }
-//                event.setIntegerValueField(.keyboardEventKeycode, value: keyCode)
-//            }fefiwofjeifowjslfjdkfjaiorifjrowofjsldkfjeiwofż
-            return Unmanaged.passRetained(event)
-        }
-
-        let eventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.keyUp.rawValue)
-        guard let eventTap = CGEvent.tapCreate(
-            tap: .cgSessionEventTap,
-            place: .headInsertEventTap,
-            options: .defaultTap,
-            eventsOfInterest: CGEventMask(eventMask),
-            callback: myCGEventCallback,
-            userInfo: nil
-            ) else {
-                print("failed to create event tap")
-                exit(1)
-        }
-
-        let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
-        CGEvent.tapEnable(tap: eventTap, enable: true)
-        CFRunLoopRun()
-
+        var _ = Modal()
     }
 
 }
