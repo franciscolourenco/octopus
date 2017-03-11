@@ -3,61 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "octopus-16x16.png",
+      "filename" : "tentacle.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "octopus-16x16@2x.png",
+      "filename" : "tentacle-1.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "octopus-32x32.png",
+      "filename" : "tentacle-2.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "octopus-32x32@2x.png",
+      "filename" : "tentacle-3.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "octopus-128x128.png",
+      "filename" : "tentacle-4.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "octopus-128x128@2x.png",
+      "filename" : "tentacle-5.png",
       "scale" : "2x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "octopus-256x256.png",
+      "filename" : "tentacle-6.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "octopus-256x256@2x.png",
+      "filename" : "tentacle-7.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "octopus-512x512.png",
+      "filename" : "tentacle-8.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "octopus-512x512@2x.png",
+      "filename" : "tentacle-9.png",
       "scale" : "2x"
     }
   ],

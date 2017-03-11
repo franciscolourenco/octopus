@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */; };
-		CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */; };
-		CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */; };
-		CEA25A931E68A227008FB6A6 /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA25A921E68A227008FB6A6 /* Keycode.swift */; };
+		B1E631FF1E73B1FE00C7E469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E631FE1E73B1FE00C7E469 /* AppDelegate.swift */; };
+		B1E632011E73B1FE00C7E469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E632001E73B1FE00C7E469 /* Assets.xcassets */; };
+		B1E632041E73B1FE00C7E469 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1E632021E73B1FE00C7E469 /* MainMenu.xib */; };
+		B1E6320E1E73B77600C7E469 /* Keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6320D1E73B77600C7E469 /* Keycode.swift */; };
+		B1E632101E73B7BA00C7E469 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6320F1E73B7BA00C7E469 /* Keyboard.swift */; };
+		B1E632121E73B7EB00C7E469 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E632111E73B7EB00C7E469 /* KeyEvent.swift */; };
+		B1E632141E73B81200C7E469 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E632131E73B81200C7E469 /* Modal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE8CEAF51E646B2C00E3B034 /* octopus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = octopus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE8CEAFD1E646B2D00E3B034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CE8CEAFF1E646B2D00E3B034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA25A921E68A227008FB6A6 /* Keycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keycode.swift; sourceTree = "<group>"; };
+		B1E631FB1E73B1FE00C7E469 /* Tentacle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tentacle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E631FE1E73B1FE00C7E469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1E632001E73B1FE00C7E469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1E632031E73B1FE00C7E469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B1E632051E73B1FE00C7E469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E6320D1E73B77600C7E469 /* Keycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keycode.swift; sourceTree = "<group>"; };
+		B1E6320F1E73B7BA00C7E469 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		B1E632111E73B7EB00C7E469 /* KeyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyEvent.swift; sourceTree = "<group>"; };
+		B1E632131E73B81200C7E469 /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE8CEAF21E646B2C00E3B034 /* Frameworks */ = {
+		B1E631F81E73B1FE00C7E469 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,71 +39,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE8CEAEC1E646B2C00E3B034 = {
+		B1E631F21E73B1FD00C7E469 = {
 			isa = PBXGroup;
 			children = (
-				CE8CEAF71E646B2C00E3B034 /* octopus */,
-				CE8CEAF61E646B2C00E3B034 /* Products */,
+				B1E631FD1E73B1FE00C7E469 /* Tentacle */,
+				B1E631FC1E73B1FE00C7E469 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CE8CEAF61E646B2C00E3B034 /* Products */ = {
+		B1E631FC1E73B1FE00C7E469 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE8CEAF51E646B2C00E3B034 /* octopus.app */,
+				B1E631FB1E73B1FE00C7E469 /* Tentacle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE8CEAF71E646B2C00E3B034 /* octopus */ = {
+		B1E631FD1E73B1FE00C7E469 /* Tentacle */ = {
 			isa = PBXGroup;
 			children = (
-				CEA25A921E68A227008FB6A6 /* Keycode.swift */,
-				CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */,
-				CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */,
-				CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */,
-				CE8CEAFF1E646B2D00E3B034 /* Info.plist */,
+				B1E6320D1E73B77600C7E469 /* Keycode.swift */,
+				B1E6320F1E73B7BA00C7E469 /* Keyboard.swift */,
+				B1E632111E73B7EB00C7E469 /* KeyEvent.swift */,
+				B1E632131E73B81200C7E469 /* Modal.swift */,
+				B1E631FE1E73B1FE00C7E469 /* AppDelegate.swift */,
+				B1E632001E73B1FE00C7E469 /* Assets.xcassets */,
+				B1E632021E73B1FE00C7E469 /* MainMenu.xib */,
+				B1E632051E73B1FE00C7E469 /* Info.plist */,
 			);
-			path = octopus;
+			path = Tentacle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE8CEAF41E646B2C00E3B034 /* octopus */ = {
+		B1E631FA1E73B1FE00C7E469 /* Tentacle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8CEB021E646B2D00E3B034 /* Build configuration list for PBXNativeTarget "octopus" */;
+			buildConfigurationList = B1E632081E73B1FE00C7E469 /* Build configuration list for PBXNativeTarget "Tentacle" */;
 			buildPhases = (
-				CE8CEAF11E646B2C00E3B034 /* Sources */,
-				CE8CEAF21E646B2C00E3B034 /* Frameworks */,
-				CE8CEAF31E646B2C00E3B034 /* Resources */,
+				B1E631F71E73B1FE00C7E469 /* Sources */,
+				B1E631F81E73B1FE00C7E469 /* Frameworks */,
+				B1E631F91E73B1FE00C7E469 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = octopus;
-			productName = octopus;
-			productReference = CE8CEAF51E646B2C00E3B034 /* octopus.app */;
+			name = Tentacle;
+			productName = Tentacle;
+			productReference = B1E631FB1E73B1FE00C7E469 /* Tentacle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE8CEAED1E646B2C00E3B034 /* Project object */ = {
+		B1E631F31E73B1FD00C7E469 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = Betafabric;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Pepe Becker";
 				TargetAttributes = {
-					CE8CEAF41E646B2C00E3B034 = {
-						CreatedOnToolsVersion = 8.1;
+					B1E631FA1E73B1FE00C7E469 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CV2G6G29G8;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = CE8CEAF01E646B2C00E3B034 /* Build configuration list for PBXProject "octopus" */;
+			buildConfigurationList = B1E631F61E73B1FD00C7E469 /* Build configuration list for PBXProject "Tentacle" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -105,45 +115,48 @@
 				en,
 				Base,
 			);
-			mainGroup = CE8CEAEC1E646B2C00E3B034;
-			productRefGroup = CE8CEAF61E646B2C00E3B034 /* Products */;
+			mainGroup = B1E631F21E73B1FD00C7E469;
+			productRefGroup = B1E631FC1E73B1FE00C7E469 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE8CEAF41E646B2C00E3B034 /* octopus */,
+				B1E631FA1E73B1FE00C7E469 /* Tentacle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE8CEAF31E646B2C00E3B034 /* Resources */ = {
+		B1E631F91E73B1FE00C7E469 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */,
-				CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */,
+				B1E632011E73B1FE00C7E469 /* Assets.xcassets in Resources */,
+				B1E632041E73B1FE00C7E469 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE8CEAF11E646B2C00E3B034 /* Sources */ = {
+		B1E631F71E73B1FE00C7E469 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA25A931E68A227008FB6A6 /* Keycode.swift in Sources */,
-				CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */,
+				B1E632121E73B7EB00C7E469 /* KeyEvent.swift in Sources */,
+				B1E632141E73B81200C7E469 /* Modal.swift in Sources */,
+				B1E6320E1E73B77600C7E469 /* Keycode.swift in Sources */,
+				B1E632101E73B7BA00C7E469 /* Keyboard.swift in Sources */,
+				B1E631FF1E73B1FE00C7E469 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */ = {
+		B1E632021E73B1FE00C7E469 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE8CEAFD1E646B2D00E3B034 /* Base */,
+				B1E632031E73B1FE00C7E469 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -151,7 +164,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CE8CEB001E646B2D00E3B034 /* Debug */ = {
+		B1E632061E73B1FE00C7E469 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -169,7 +182,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -191,7 +204,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -200,7 +213,7 @@
 			};
 			name = Debug;
 		};
-		CE8CEB011E646B2D00E3B034 /* Release */ = {
+		B1E632071E73B1FE00C7E469 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -218,7 +231,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -234,34 +247,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
-		CE8CEB031E646B2D00E3B034 /* Debug */ = {
+		B1E632091E73B1FE00C7E469 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = octopus/Info.plist;
+				DEVELOPMENT_TEAM = CV2G6G29G8;
+				INFOPLIST_FILE = Tentacle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.betafabric.octopus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepebecker.Tentacle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		CE8CEB041E646B2D00E3B034 /* Release */ = {
+		B1E6320A1E73B1FE00C7E469 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = octopus/Info.plist;
+				DEVELOPMENT_TEAM = CV2G6G29G8;
+				INFOPLIST_FILE = Tentacle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.betafabric.octopus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepebecker.Tentacle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -270,25 +285,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE8CEAF01E646B2C00E3B034 /* Build configuration list for PBXProject "octopus" */ = {
+		B1E631F61E73B1FD00C7E469 /* Build configuration list for PBXProject "Tentacle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE8CEB001E646B2D00E3B034 /* Debug */,
-				CE8CEB011E646B2D00E3B034 /* Release */,
+				B1E632061E73B1FE00C7E469 /* Debug */,
+				B1E632071E73B1FE00C7E469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8CEB021E646B2D00E3B034 /* Build configuration list for PBXNativeTarget "octopus" */ = {
+		B1E632081E73B1FE00C7E469 /* Build configuration list for PBXNativeTarget "Tentacle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE8CEB031E646B2D00E3B034 /* Debug */,
-				CE8CEB041E646B2D00E3B034 /* Release */,
+				B1E632091E73B1FE00C7E469 /* Debug */,
+				B1E6320A1E73B1FE00C7E469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE8CEAED1E646B2C00E3B034 /* Project object */;
+	rootObject = B1E631F31E73B1FD00C7E469 /* Project object */;
 }
