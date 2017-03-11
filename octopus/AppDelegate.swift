@@ -52,34 +52,49 @@ extension KeyEvent: Hashable {
 
 class Modal {
     var on: Bool = false
-
-    var bindings: [KeyEvent: KeyEvent] = [
-        KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
-        KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift])
-    ]
+    var triggerPressedTimestamp = Date().timeIntervalSince1970
+    var trigger : KeyEvent
+    var wasUsed = false
+    
+    var bindings: [KeyEvent: KeyEvent] = [:]
 
     func enter() {
-        self.on = true
-        print("enter mode")
-        Keyboard.keyDown(key: .command)
+        on = true
+        wasUsed = false
+        triggerPressedTimestamp = Date().timeIntervalSince1970
+        entered()
     }
 
     func exit() {
-        self.on = false
-        print("leave mode")
-        Keyboard.keyUp(key: .command)
+        on = false
+        exited()
+        if !wasUsed && Date().timeIntervalSince1970 - self.triggerPressedTimestamp < 1{
+            Keyboard.keyStroke(key: trigger.key)
+        }
     }
     
-    init() {
+    func entered () {
+    }
+    
+    func exited () {
+    }
+    
+    init(trigger: KeyEvent, bindings: [KeyEvent: KeyEvent]) {
+        self.trigger = trigger
+        self.bindings = bindings
 
         func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
 
             let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
             let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
-            //            if type == .keyDown && keyCode == 0 {aa//            print(keyCode, event.getIntegerValueField(.eventSourceUserData))a
+
             if event.getIntegerValueField(.eventSourceUserData) != 1337 {
-                if UInt16(keyCode) == Keycode.tab.rawValue  {
-                    if type == .keyDown && event.getIntegerValueField(.keyboardEventAutorepeat) == 0{
+                var modifiers = event.flags
+                modifiers.remove(.maskNonCoalesced)
+
+                
+                if let key = Keycode(rawValue: UInt16(keyCode)), KeyEvent(key: key, modifiers: modifiers) == thisModal.trigger {
+                    if type == .keyDown && event.getIntegerValueField(.keyboardEventAutorepeat) == 0 {
                         thisModal.enter()
                     } else if type == .keyUp {
                         thisModal.exit()
@@ -88,8 +103,9 @@ class Modal {
                 }
 
                 if thisModal.on && type == .keyDown {
-                    if let to = thisModal.bindings[KeyEvent(key: Keycode(rawValue: UInt16(keyCode))!, modifiers: [])] {
+                    if let to = thisModal.bindings[KeyEvent(key: Keycode(rawValue: UInt16(keyCode))!, modifiers: modifiers)] {
                         Keyboard.keyStroke(key: to.key, modifiers: to.modifiers )
+                        thisModal.wasUsed = true
                         return nil
                     }
                 }
@@ -165,7 +181,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     func startTapping () {
-        self.tabMode = Modal()
+        class TabMode : Modal {
+            override func entered () {
+                Keyboard.keyDown(key: .command)
+            }
+            override func exited () {
+                Keyboard.keyUp(key: .command)
+            }
+        }
+        
+        self.tabMode = TabMode(trigger: KeyEvent(key: .tab, modifiers: []), bindings: [
+            KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
+            KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift]),
+            KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
+            KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
+            KeyEvent(key: .i, modifiers: []): KeyEvent(key: .grave, modifiers: [.maskCommand]),
+            KeyEvent(key: .k, modifiers: []): KeyEvent(key: .grave, modifiers: [.maskCommand, .maskShift])
+            ])
     }
 
 }
