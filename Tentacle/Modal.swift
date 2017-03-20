@@ -43,6 +43,10 @@ class Modal {
         
         func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
             
+            if !appIsEnabled {
+                return Unmanaged.passRetained(event)
+            }
+            
             let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
             let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
             

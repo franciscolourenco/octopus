@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,22 +15,71 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tentacle" customModuleProvider="target">
             <connections>
+                <outlet property="checkForUpdatesItem" destination="4wM-IO-taT" id="LiZ-Je-Mm0"/>
+                <outlet property="openHelpItem" destination="Ysn-Oj-6gg" id="z8a-YC-2aK"/>
+                <outlet property="quitItem" destination="tLo-6m-mGi" id="Xex-A1-acW"/>
+                <outlet property="statusLabelItem" destination="Wa4-UJ-rJx" id="SyH-u6-96b"/>
                 <outlet property="statusMenu" destination="z6a-V5-Hqf" id="SKy-eZ-BIv"/>
+                <outlet property="toggleItem" destination="2te-jm-Dep" id="sTo-vs-5ZX"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="z6a-V5-Hqf">
             <items>
+                <menuItem title="Status: Enabled" id="Wa4-UJ-rJx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem title="About Tentacle" id="qqN-6i-5Au">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Quit" id="tLo-6m-mGi">
-                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitClicked:" target="Voe-Tx-rLC" id="fv3-kU-VZH"/>
+                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="xY3-D8-hMV"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Check for Updates..." id="4wM-IO-taT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Disable Tentacle" id="2te-jm-Dep">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Q1D-Io-mlj"/>
+                <menuItem title="Preferences Panel" id="4di-Jl-71v">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="5hV-co-0C0" id="lRk-NN-tQl"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="W0R-5X-yU4"/>
+                <menuItem title="Open Help" id="Ysn-Oj-6gg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="hst-fA-0yi"/>
+                <menuItem title="Quit Tentacle" id="tLo-6m-mGi">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
             </items>
+            <point key="canvasLocation" x="139" y="165.5"/>
         </menu>
+        <window title="Preferences Panel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oyd-BO-DEj" customClass="NSPanel">
+            <windowStyleMask key="styleMask" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="85" width="201" height="104"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="5hV-co-0C0">
+                <rect key="frame" x="0.0" y="0.0" width="201" height="104"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyw-Yq-eKo">
+                        <rect key="frame" x="18" y="62" width="165" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Some Preferences..." id="Azf-hb-fpM">
+                            <font key="font" metaFont="system" size="18"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="376.5" y="131"/>
+        </window>
     </objects>
 </document>
