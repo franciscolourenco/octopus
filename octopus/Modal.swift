@@ -15,68 +15,73 @@ class Modal {
     var statusIndicator: NSButton?
     let delayBeforeEnabling = 200
     var redZone = 0.05
-    
+
+    var isUserTyping = false
+    var lastTypingTimestamp = Date().timeIntervalSince1970
+
     var triggerPressedTimestamp = Date().timeIntervalSince1970
     var trigger: KeyEvent
     var wasUsed = false
-    
+
     var bindings: [KeyEvent: KeyEvent] = [:]
     var overlaidModifiers: [KeyEvent: KeyOverlaidModifier]
     var activeModifiers: CGEventFlags = []
 //    var relevantEventFields: [CGEventField] = [.keyboard​Event​Autorepeat, .keyboard​Event​Keycode, .keyboard​Event​Keyboard​Type, .event​Target​Process​Serial​Number, .event​Target​Unix​Process​ID, .event​Source​Unix​Process​ID, .event​Source​User​Data, .event​Source​User​ID, .event​Source​Group​ID, .event​Source​State​ID]
-    
+
     var unusedOverlays: Set<KeyEvent> = []
-    
-    
-    
+
+
+
     let maskToKey: [UInt64: KeyCode] = [
         CGEventFlags.maskCommand.rawValue: .command,
         CGEventFlags.maskAlternate.rawValue: .rightAlt,
         CGEventFlags.maskControl.rawValue: .rightControl,
         CGEventFlags.maskShift.rawValue: .rightShift,
     ]
-    
+
     func pressVirtualModifier(modifier: CGEventFlags) {
 //        Keyboard.keyDown(key: maskToKey[modifier.rawValue]!)
         activeModifiers.insert(modifier)
     }
-    
+
     func releaseVirtualModifier(modifier: CGEventFlags) {
 //        Keyboard.keyUp(key: maskToKey[modifier.rawValue]!)
         activeModifiers.subtract(modifier)
     }
-    
+
     func enter() {
         enabled = true
         wasUsed = false
         triggerPressedTimestamp = Date().timeIntervalSince1970
+        isUserTyping = false
         entered()
     }
-    
+
     func exit() {
         enabled = false
         exited()
         activeModifiers = []
         if !wasUsed && Date().timeIntervalSince1970 - self.triggerPressedTimestamp < 1 {
             print("modal not used, sending original keystroke")
+            isUserTyping = true
             Keyboard.keyStroke(key: trigger.key)
         }
     }
-    
+
     func inRedZone() -> Bool {
         return Date().timeIntervalSince1970 - self.triggerPressedTimestamp < redZone
     }
-    
+
     func entered () {
         print(name + " entered")
         statusIndicator?.state = NSOnState
     }
-    
+
     func exited () {
         print(name + " exited")
         statusIndicator?.state = NSOffState
     }
-    
+
     func eventFieldsToString(event: CGEvent) -> String {
         var fieldsString = ""
         fieldsString = fieldsString + "| keyboard​Event​Autorepeat: " + String(event.getIntegerValueField(.keyboardEventAutorepeat))
@@ -97,33 +102,39 @@ class Modal {
         self.bindings = bindings
         self.overlaidModifiers = overlaidModifiers
         self.statusIndicator = statusIndicator
-        
+
         func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
             let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
             let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
-            
+
 //            print("event: ", thisModal.eventFieldsToString(event:event))
 
             if event.getIntegerValueField(.eventSourceUserData) != 1337, let key = KeyCode(rawValue: UInt16(keyCode)) {
                 var modifiers = event.flags
                 modifiers.remove(.maskNonCoalesced)
-                
+
                 let keyEvent = KeyEvent(key: key, modifiers: modifiers)
-                
+
                 if keyEvent == thisModal.trigger {
-                    
+
                     if type == .keyDown {
-                        if !thisModal.enabled {
-                            thisModal.enter()
+                        thisModal.isUserTyping = thisModal.isUserTyping && Date().timeIntervalSince1970 - thisModal.lastTypingTimestamp < 0
+
+                        if !thisModal.isUserTyping {
+                            if !thisModal.enabled {
+                                thisModal.enter()
+                            }
+                            return nil
+                        } else {
+                            print("User is typing, send space")
                         }
-                        return nil
                     } else if type == .keyUp && thisModal.enabled {
                         thisModal.exit()
                         return nil
                     }
-                    
+
                 }
-                
+
                 if thisModal.enabled {
                     if false && thisModal.inRedZone() {
                         print(thisModal.name + "was in redzone")
@@ -138,7 +149,7 @@ class Modal {
                                 thisModal.unusedOverlays = []
                                 return nil
                             }
-                            
+
                             if let overlaidModifier = thisModal.overlaidModifiers[keyEvent] {
                                 if event.getIntegerValueField(.keyboardEventAutorepeat) == 0 {
                                     thisModal.unusedOverlays.insert(keyEvent)
@@ -146,7 +157,7 @@ class Modal {
                                 }
                                 return nil
                             }
-                            
+
                         } else if type == .keyUp {
                             if let overlaidModifier = thisModal.overlaidModifiers[keyEvent]{
                                 thisModal.releaseVirtualModifier(modifier: overlaidModifier.overlay)
@@ -161,9 +172,13 @@ class Modal {
                     }
                 }
             }
+
+            if type == .keyUp {
+                thisModal.lastTypingTimestamp = Date().timeIntervalSince1970
+            }
             return Unmanaged.passRetained(event)
         }
-        
+
         let eventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.keyUp.rawValue)
         guard let eventTap = CGEvent.tapCreate(
             tap: .cgSessionEventTap,
@@ -176,11 +191,11 @@ class Modal {
                 print("failed to create event tap")
                 return
         }
-        
+
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
         CGEvent.tapEnable(tap: eventTap, enable: true)
         CFRunLoopRun()
-        
+
     }
 }

@@ -29,36 +29,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var launchbar: KeyToKey? = nil
     var launchbarShift: KeyToKey? = nil
     var capsLockMonitor: CapsLockMonitor? = nil
+    var metrics: Metrics? = nil
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         statusItem.title = "Octopus"
         statusItem.menu = statusMenu
-
         // Insert code here to initialize your application
-//        func acquirePrivileges() -> Bool {
-//            let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
-//            let privOptions: NSDictionary = [trusted as NSString: true]
-//            let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
-//            if !accessEnabled {
-//                let alert = NSAlert()
-//                alert.messageText = "Enable Octopus"
-//                alert.informativeText = "Once you have enabled Octopus in System Preferences, click OK."
-//                alert.beginSheetModal(for: self.window, completionHandler: { response in
-//                    if AXIsProcessTrustedWithOptions(privOptions) {
-//                        print("already have priviledges")
-//                    } else {
-//                        NSApp.terminate(self)
-//                    }
-//                })
-//            }
-//            return accessEnabled
-//        }
-//        if acquirePrivileges() {
-            startTapping()
-//        } else {
-//            exit(1)
-//        }
+        //        func acquirePrivileges() -> Bool {
+        //            let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
+        //            let privOptions: NSDictionary = [trusted as NSString: true]
+        //            let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
+        //            if !accessEnabled {
+        //                let alert = NSAlert()
+        //                alert.messageText = "Enable Octopus"
+        //                alert.informativeText = "Once you have enabled Octopus in System Preferences, click OK."
+        //                alert.beginSheetModal(for: self.window, completionHandler: { response in
+        //                    if AXIsProcessTrustedWithOptions(privOptions) {
+        //                        print("already have priviledges")
+        //                    } else {
+        //                        NSApp.terminate(self)
+        //                    }
+        //                })
+        //            }
+        //            return accessEnabled
+        //        }
+        //        if acquirePrivileges() {
+        startTapping()
+        //        } else {
+        //            exit(1)
+        //        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -86,6 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
 
         }
+
 
         self.tabMode = TabMode(name: "Tabmode", statusIndicator: tabmodeIndicator, trigger: KeyEvent(key: .tab, modifiers: []), bindings: [
             KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
@@ -123,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 KeyEvent(key: .t, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
                 KeyEvent(key: .slash, modifiers: []): KeyEvent(key: .slash, modifiers: [.maskCommand]),
                 KeyEvent(key: .backslash, modifiers: []): KeyEvent(key: .backslash, modifiers: [.maskCommand]),
-            ],
+                ],
             overlaidModifiers: [
                 KeyEvent(key: .a, modifiers: []): KeyOverlaidModifier(overlay: [.maskShift], to: KeyEvent(key: .s, modifiers: [.maskControl])),
                 KeyEvent(key: .s, modifiers: []): KeyOverlaidModifier(overlay: [.maskControl], to: KeyEvent(key: .x, modifiers: [.maskCommand])),
@@ -136,11 +137,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ]
         )
 
-//        This is used as a hack to transform the caps lock into an "hyper key"
+        //        This is used as a hack to transform the caps lock into an "hyper key"
         self.launchbar = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: []), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate]))
         self.launchbarShift = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: [.maskShift]), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate, .maskShift]))
 
 
-
+        // self.metrics = Metrics()
     }
 }

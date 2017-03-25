@@ -17,7 +17,8 @@
 		CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */; };
 		CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */; };
 		CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA25A921E68A227008FB6A6 /* KeyCode.swift */; };
-		CEE4D8FA1E79BCBF0068B8E4 /* MouseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */; };
+		CEF932C71E869C4E00C4839F /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF932C61E869C4E00C4839F /* Metrics.swift */; };
+		CEF932C91E86A46600C4839F /* OutputString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF932C81E86A46600C4839F /* OutputString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		CE8CEAFD1E646B2D00E3B034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CE8CEAFF1E646B2D00E3B034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA25A921E68A227008FB6A6 /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
-		CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MouseMonitor.swift; sourceTree = "<group>"; };
+		CEF932C61E869C4E00C4839F /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		CEF932C81E86A46600C4839F /* OutputString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,6 @@
 		CE8CEAEC1E646B2C00E3B034 = {
 			isa = PBXGroup;
 			children = (
-				CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */,
 				CE8CEAF71E646B2C00E3B034 /* octopus */,
 				CE8CEAF61E646B2C00E3B034 /* Products */,
 			);
@@ -73,7 +74,9 @@
 				CE6CFE971E771C9B0024C8EE /* KeyToKey.swift */,
 				CE6CFE951E771C840024C8EE /* KeyOverlaidModifier.swift */,
 				CE6CFE911E771C0D0024C8EE /* Modal.swift */,
+				CEF932C61E869C4E00C4839F /* Metrics.swift */,
 				CE6CFE931E771C5C0024C8EE /* KeyEvent.swift */,
+				CEF932C81E86A46600C4839F /* OutputString.swift */,
 				CE6CFE991E7721440024C8EE /* CaplockMonitor.swift */,
 				CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */,
 				CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */,
@@ -154,13 +157,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6CFE9A1E7721440024C8EE /* CaplockMonitor.swift in Sources */,
+				CEF932C91E86A46600C4839F /* OutputString.swift in Sources */,
 				CE6CFE981E771C9B0024C8EE /* KeyToKey.swift in Sources */,
 				CE6CFE9C1E7721750024C8EE /* Keyboard.swift in Sources */,
 				CE6CFE941E771C5C0024C8EE /* KeyEvent.swift in Sources */,
+				CEF932C71E869C4E00C4839F /* Metrics.swift in Sources */,
 				CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */,
 				CE6CFE921E771C0D0024C8EE /* Modal.swift in Sources */,
 				CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */,
-				CEE4D8FA1E79BCBF0068B8E4 /* MouseMonitor.swift in Sources */,
 				CE6CFE961E771C840024C8EE /* KeyOverlaidModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
