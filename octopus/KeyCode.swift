@@ -117,4 +117,6 @@ enum KeyCode: UInt16 {
     case f10            = 0x6D
     case f11            = 0x67
     case f12            = 0x6F
+    
+    case international  = 0x5E
 }

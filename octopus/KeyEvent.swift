@@ -8,12 +8,19 @@
 
 import Foundation
 
+
 struct KeyEvent {
     var key: KeyCode
     var modifiers: CGEventFlags
+    
+    init(key: KeyCode, modifiers: CGEventFlags) {
+        self.key = key
+        self.modifiers = modifiers.intersection(relevantMask)
+    }
 }
 
 extension KeyEvent: Hashable {
+    
     var hashValue: Int {
         var hash = key.hashValue
         hash = hash ^ modifiers.rawValue.hashValue

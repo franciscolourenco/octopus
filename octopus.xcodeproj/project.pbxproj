@@ -17,6 +17,7 @@
 		CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */; };
 		CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */; };
 		CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA25A921E68A227008FB6A6 /* KeyCode.swift */; };
+		CEE4D8FA1E79BCBF0068B8E4 /* MouseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE8CEAFD1E646B2D00E3B034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CE8CEAFF1E646B2D00E3B034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA25A921E68A227008FB6A6 /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MouseMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 		CE8CEAEC1E646B2C00E3B034 = {
 			isa = PBXGroup;
 			children = (
+				CEE4D8F91E79BCBF0068B8E4 /* MouseMonitor.swift */,
 				CE8CEAF71E646B2C00E3B034 /* octopus */,
 				CE8CEAF61E646B2C00E3B034 /* Products */,
 			);
@@ -106,7 +109,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Betafabric;
 				TargetAttributes = {
 					CE8CEAF41E646B2C00E3B034 = {
@@ -157,6 +160,7 @@
 				CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */,
 				CE6CFE921E771C0D0024C8EE /* Modal.swift in Sources */,
 				CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */,
+				CEE4D8FA1E79BCBF0068B8E4 /* MouseMonitor.swift in Sources */,
 				CE6CFE961E771C840024C8EE /* KeyOverlaidModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +197,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -242,6 +247,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
