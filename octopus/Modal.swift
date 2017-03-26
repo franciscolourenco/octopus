@@ -16,6 +16,10 @@ class Modal {
     let delayBeforeEnabling = 200
     var redZone = 0.05
 
+    var unusedKeyDown: KeyEvent? = nil
+    var keyUpCount = 0
+    var keyDownCount = 0
+
     var isUserTyping = false
     var lastTypingTimestamp = Date().timeIntervalSince1970
 
@@ -50,6 +54,8 @@ class Modal {
     }
 
     func enter() {
+        keyDownCount = 0
+        keyUpCount = 0
         enabled = true
         wasUsed = false
         triggerPressedTimestamp = Date().timeIntervalSince1970
@@ -65,6 +71,10 @@ class Modal {
             print("modal not used, sending original keystroke")
             isUserTyping = true
             Keyboard.keyStroke(key: trigger.key)
+            if name == "HomerowMode" && keyDownCount == 1 && keyUpCount == 0 && unusedKeyDown != nil {
+                Keyboard.keyStroke(key: (unusedKeyDown?.key)!)
+            }
+            unusedKeyDown = nil
         }
     }
 
@@ -136,19 +146,32 @@ class Modal {
                 }
 
                 if thisModal.enabled {
-                    if false && thisModal.inRedZone() {
+                    if false && thisModal.inRedZone() && type == .keyDown {
                         print(thisModal.name + "was in redzone")
                         thisModal.exit()
                         Keyboard.keyStroke(key: key, modifiers: event.flags)
                         return nil
                     } else {
                         if type == .keyDown {
-                            if let to = thisModal.bindings[keyEvent] {
+                            thisModal.keyDownCount += 1
+
+                            if thisModal.keyDownCount == 1 {
+                                thisModal.unusedKeyDown = keyEvent
+                            }
+
+                            if thisModal.keyDownCount > 1 || thisModal.name != "HomerowMode", let to = thisModal.bindings[keyEvent] {
+                                if thisModal.unusedKeyDown != nil, let unusedTo = thisModal.bindings[thisModal.unusedKeyDown!] {
+                                    Keyboard.keyStroke(key: unusedTo.key, modifiers: unusedTo.modifiers.union(thisModal.activeModifiers))
+                                    thisModal.unusedKeyDown = nil
+                                }
                                 Keyboard.keyStroke(key: to.key, modifiers: to.modifiers.union(thisModal.activeModifiers) )
                                 thisModal.wasUsed = true
                                 thisModal.unusedOverlays = []
                                 return nil
                             }
+                            // if let to = thisModal.bindings[keyEvent] {
+                            //     return nil
+                            // }
 
                             if let overlaidModifier = thisModal.overlaidModifiers[keyEvent] {
                                 if event.getIntegerValueField(.keyboardEventAutorepeat) == 0 {
@@ -157,8 +180,25 @@ class Modal {
                                 }
                                 return nil
                             }
+                            return nil
+
+
+
 
                         } else if type == .keyUp {
+                            if thisModal.keyDownCount > 0 {
+                                thisModal.keyUpCount += 1
+                            }
+
+
+                            if thisModal.name == "HomerowMode" && thisModal.keyUpCount == 1 && thisModal.keyDownCount == 1 && thisModal.unusedKeyDown != nil, let to = thisModal.bindings[keyEvent] {
+                                Keyboard.keyStroke(key: to.key, modifiers: to.modifiers.union(thisModal.activeModifiers) )
+                                thisModal.unusedKeyDown = nil
+                                thisModal.wasUsed = true
+                                thisModal.unusedOverlays = []
+                                return nil
+                            }
+
                             if let overlaidModifier = thisModal.overlaidModifiers[keyEvent]{
                                 thisModal.releaseVirtualModifier(modifier: overlaidModifier.overlay)
                                 if thisModal.unusedOverlays.contains(keyEvent) {
