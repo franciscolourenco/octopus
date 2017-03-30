@@ -1,3 +1,4 @@
+
 //
 //  Modal.swift
 //  octopus
@@ -155,9 +156,6 @@ class Modal {
                         if type == .keyDown {
                             thisModal.keyDownCount += 1
 
-                            if thisModal.keyDownCount == 1 {
-                                thisModal.unusedKeyDown = keyEvent
-                            }
 
                             if thisModal.keyDownCount > 1 || thisModal.name != "HomerowMode", let to = thisModal.bindings[keyEvent] {
                                 if thisModal.unusedKeyDown != nil, let unusedTo = thisModal.bindings[thisModal.unusedKeyDown!] {
@@ -168,7 +166,10 @@ class Modal {
                                 thisModal.wasUsed = true
                                 thisModal.unusedOverlays = []
                                 return nil
+                            } else if thisModal.keyDownCount == 1 {
+                                thisModal.unusedKeyDown = keyEvent
                             }
+
                             // if let to = thisModal.bindings[keyEvent] {
                             //     return nil
                             // }
@@ -188,24 +189,26 @@ class Modal {
                         } else if type == .keyUp {
                             if thisModal.keyDownCount > 0 {
                                 thisModal.keyUpCount += 1
-                            }
 
 
-                            if thisModal.name == "HomerowMode" && thisModal.keyUpCount == 1 && thisModal.keyDownCount == 1 && thisModal.unusedKeyDown != nil, let to = thisModal.bindings[keyEvent] {
-                                Keyboard.keyStroke(key: to.key, modifiers: to.modifiers.union(thisModal.activeModifiers) )
-                                thisModal.unusedKeyDown = nil
-                                thisModal.wasUsed = true
-                                thisModal.unusedOverlays = []
-                                return nil
-                            }
 
-                            if let overlaidModifier = thisModal.overlaidModifiers[keyEvent]{
-                                thisModal.releaseVirtualModifier(modifier: overlaidModifier.overlay)
-                                if thisModal.unusedOverlays.contains(keyEvent) {
+                                if thisModal.name == "HomerowMode" && thisModal.keyUpCount == 1 && thisModal.keyDownCount == 1 && thisModal.unusedKeyDown != nil, let to = thisModal.bindings[keyEvent] {
+                                    Keyboard.keyStroke(key: to.key, modifiers: to.modifiers.union(thisModal.activeModifiers) )
+                                    thisModal.unusedKeyDown = nil
+                                    thisModal.wasUsed = true
                                     thisModal.unusedOverlays = []
-                                    Keyboard.keyStroke(key: overlaidModifier.to.key, modifiers: overlaidModifier.to.modifiers.union(thisModal.activeModifiers) )
+                                    return nil
                                 }
-                                return nil
+
+                                if let overlaidModifier = thisModal.overlaidModifiers[keyEvent]{
+                                    thisModal.releaseVirtualModifier(modifier: overlaidModifier.overlay)
+                                    if thisModal.unusedOverlays.contains(keyEvent) {
+                                        thisModal.unusedOverlays = []
+                                        Keyboard.keyStroke(key: overlaidModifier.to.key, modifiers: overlaidModifier.to.modifiers.union(thisModal.activeModifiers) )
+                                        thisModal.wasUsed = true
+                                    }
+                                    return nil
+                                }
                             }
                         }
 

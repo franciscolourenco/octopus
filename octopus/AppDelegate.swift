@@ -88,19 +88,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
 
-        self.tabMode = TabMode(name: "Tabmode", statusIndicator: tabmodeIndicator, trigger: KeyEvent(key: .tab, modifiers: []), bindings: [
-            KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
-            KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift]),
-            KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
-            KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
-            KeyEvent(key: .i, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand]),
-            KeyEvent(key: .k, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand, .maskShift]),
-            KeyEvent(key: .y, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
-            KeyEvent(key: .w, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
-            KeyEvent(key: .q, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand]),
-            KeyEvent(key: .semicolon, modifiers: []): KeyEvent(key: .o, modifiers: [.maskCommand, .maskAlternate, .maskShift, .maskControl]),
-            KeyEvent(key: .quote, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand])
-            ])
+        self.tabMode = TabMode(
+            name: "Tabmode",
+            statusIndicator: tabmodeIndicator,
+            trigger: KeyEvent(key: .tab, modifiers: []),
+            bindings: [
+                KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
+                KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift]),
+                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
+                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
+//                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
+//                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
+                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand]),
+                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand, .maskShift]),
+                KeyEvent(key: .y, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
+                KeyEvent(key: .w, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
+//                KeyEvent(key: .h, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
+                KeyEvent(key: .n, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
+                KeyEvent(key: .q, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand]),
+                KeyEvent(key: .semicolon, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
+                                KeyEvent(key: .h, modifiers: []): KeyEvent(key: .o, modifiers: [.maskCommand, .maskAlternate, .maskShift, .maskControl]),
+                KeyEvent(key: .quote, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand])
+            ],
+            overlaidModifiers: [
+                KeyEvent(key: .f, modifiers: []): KeyOverlaidModifier(overlay: [.maskCommand], to: KeyEvent(key: .alpha1, modifiers: []))
+            ]
+        )
 
         self.homerowMode = Modal(
             name: "HomerowMode",
