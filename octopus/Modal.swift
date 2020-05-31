@@ -126,25 +126,24 @@ class Modal {
 
                 let keyEvent = KeyEvent(key: key, modifiers: modifiers)
 
-                if keyEvent == thisModal.trigger {
+                
 
-                    if type == .keyDown {
-                        thisModal.isUserTyping = thisModal.isUserTyping && Date().timeIntervalSince1970 - thisModal.lastTypingTimestamp < 0
-
-                        if !thisModal.isUserTyping {
-                            if !thisModal.enabled {
-                                thisModal.enter()
-                            }
-                            return nil
-                        } else {
-                            print("User is typing, send space")
+                if type == .keyDown && keyEvent == thisModal.trigger {
+                    thisModal.isUserTyping = thisModal.isUserTyping && Date().timeIntervalSince1970 - thisModal.lastTypingTimestamp < 0
+                    
+                    if !thisModal.isUserTyping {
+                        if !thisModal.enabled {
+                            thisModal.enter()
                         }
-                    } else if type == .keyUp && thisModal.enabled {
-                        thisModal.exit()
                         return nil
+                    } else {
+                        print("User is typing, send space")
                     }
-
+                } else if type == .keyUp && thisModal.enabled && key == thisModal.trigger.key {
+                    thisModal.exit()
+                    return nil
                 }
+
 
                 if thisModal.enabled {
                     if false && thisModal.inRedZone() && type == .keyDown {

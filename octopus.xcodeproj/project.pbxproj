@@ -123,7 +123,7 @@
 			};
 			buildConfigurationList = CE8CEAF01E646B2C00E3B034 /* Build configuration list for PBXProject "octopus" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

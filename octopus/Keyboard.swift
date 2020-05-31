@@ -15,17 +15,17 @@ class Keyboard {
         event?.flags = modifiers
         event?.post(tap: .cgSessionEventTap)
     }
-    
+
     static func keyDown(key: KeyCode, modifiers: CGEventFlags = []) {
         print("Keyboard.keyDown", key, modifiers)
         changeKey(key: key, modifiers: modifiers, keyDown: true)
     }
-    
+
     static func keyUp(key: KeyCode, modifiers: CGEventFlags = []) {
         print("Keyboard.keyUp", key, modifiers)
         changeKey(key: key, modifiers: modifiers, keyDown: false)
     }
-    
+
     static func keyStroke(key: KeyCode, modifiers: CGEventFlags =  []) {
         print("keyStroke", key, modifiers)
         changeKey(key: key, modifiers: modifiers, keyDown: true)

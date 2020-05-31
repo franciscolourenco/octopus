@@ -45,10 +45,11 @@ func modifierToString (mod: CGEventFlags) -> String {
 class KeyToKey {
     var fromKey: KeyEvent
     var toKey: KeyEvent
+    var isKeyPressed: Bool = false
     init (fromKey: KeyEvent, toKey: KeyEvent) {
         self.fromKey = fromKey
         self.toKey = toKey
-
+        
         func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
 
             let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
@@ -60,11 +61,25 @@ class KeyToKey {
 //                print("modifiers: ", modifiersToString(mods: modifiers), modifiers)
 //                print("expected: ", modifiersToString(mods: thisKeyToKey.fromKey.modifiers), thisKeyToKey.fromKey.modifiers)
                 let keyEvent = KeyEvent(key: key, modifiers: modifiers)
-
+                
+                print("autorepeat:", event.getIntegerValueField(.keyboardEventAutorepeat), "type:", type.rawValue, "pressed:", thisKeyToKey.isKeyPressed)
                 if keyEvent == thisKeyToKey.fromKey {
+                    
+                    // prevent invalid key repeats without autoRepeat sent by Karabiner Elenents capslock
+                    if thisKeyToKey.isKeyPressed && type == .keyDown && event.getIntegerValueField(.keyboardEventAutorepeat) == 0 {
+                        print("double key down")
+                        return nil
+                    } else if !thisKeyToKey.isKeyPressed && type == .keyUp {
+                        print("double key up")
+                        return nil
+                    }
+                    thisKeyToKey.isKeyPressed = (type == .keyDown)
                     event.setIntegerValueField(.keyboardEventKeycode, value: Int64(thisKeyToKey.toKey.key.rawValue))
                     event.flags = thisKeyToKey.toKey.modifiers
+                    event.setIntegerValueField(.eventSourceUserData, value: 1337)
+    
                 }
+                
             }
             return Unmanaged.passRetained(event)
         }

@@ -9,7 +9,6 @@
 import Cocoa
 import Foundation
 
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -24,12 +23,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
 
-    var tabMode: Modal? = nil
-    var homerowMode: Modal? = nil
-    var launchbar: KeyToKey? = nil
-    var launchbarShift: KeyToKey? = nil
-    var capsLockMonitor: CapsLockMonitor? = nil
-    var metrics: Metrics? = nil
+    var tabMode: Modal?
+    var homerowMode: Modal?
+    var launchbar: KeyToKey?
+    var launchbarShift: KeyToKey?
+    var capsLockMonitor: CapsLockMonitor?
+    var metrics: Metrics?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -64,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+
     func startTapping () {
         class TabMode: Modal {
 
@@ -87,7 +87,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         }
 
-
         self.tabMode = TabMode(
             name: "Tabmode",
             statusIndicator: tabmodeIndicator,
@@ -95,20 +94,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             bindings: [
                 KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
                 KeyEvent(key: .j, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand, .maskShift]),
-                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
-                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
-//                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
-//                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
-                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand]),
-                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand, .maskShift]),
                 KeyEvent(key: .y, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
                 KeyEvent(key: .w, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
-//                KeyEvent(key: .h, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
-                KeyEvent(key: .n, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
                 KeyEvent(key: .q, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand]),
+                KeyEvent(key: .quote, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand]),
+
+                // Old System
+                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
+                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
+                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand]),
+                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand, .maskShift]),
+
+                // New System
                 KeyEvent(key: .semicolon, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
-                                KeyEvent(key: .h, modifiers: []): KeyEvent(key: .o, modifiers: [.maskCommand, .maskAlternate, .maskShift, .maskControl]),
-                KeyEvent(key: .quote, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand])
+                KeyEvent(key: .h, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
+                KeyEvent(key: .n, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand, .maskShift]),
+                KeyEvent(key: .slash, modifiers: []): KeyEvent(key: .f, modifiers: [.maskCommand]),
+//                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
+//                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
+//                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
+            //                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommanlllld, .maskAlternate]),
             ],
             overlaidModifiers: [
                 KeyEvent(key: .f, modifiers: []): KeyOverlaidModifier(overlay: [.maskCommand], to: KeyEvent(key: .alpha1, modifiers: []))
@@ -153,7 +158,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //        This is used as a hack to transform the caps lock into an "hyper key"
         self.launchbar = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: []), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate]))
         self.launchbarShift = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: [.maskShift]), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate, .maskShift]))
-
+//        self.launchbar = KeyToKey(fromKey: KeyEvent(key: .m, modifiers: []), toKey: KeyEvent(key: .n, modifiers:[]))
 
         // self.metrics = Metrics()
     }

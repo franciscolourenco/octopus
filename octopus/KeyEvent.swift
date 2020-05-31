@@ -17,6 +17,9 @@ struct KeyEvent {
         self.key = key
         self.modifiers = modifiers.intersection(relevantMask)
     }
+    func contains(otherKeyEvent: KeyEvent) -> Bool {
+        return self.key == otherKeyEvent.key && self.modifiers.contains(otherKeyEvent.modifiers)
+    }
 }
 
 extension KeyEvent: Hashable {
