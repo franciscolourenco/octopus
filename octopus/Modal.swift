@@ -85,12 +85,12 @@ class Modal {
 
     func entered () {
         print(name + " entered")
-        statusIndicator?.state = NSOnState
+        statusIndicator?.state = NSControl.StateValue.on
     }
 
     func exited () {
         print(name + " exited")
-        statusIndicator?.state = NSOffState
+        statusIndicator?.state = NSControl.StateValue.off
     }
 
     func eventFieldsToString(event: CGEvent) -> String {

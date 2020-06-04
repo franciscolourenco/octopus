@@ -23,14 +23,12 @@ struct KeyEvent {
 }
 
 extension KeyEvent: Hashable {
-    
-    var hashValue: Int {
-        var hash = key.hashValue
-        hash = hash ^ modifiers.rawValue.hashValue
-        return hash
-    }
-    
     static func == (lhs: KeyEvent, rhs: KeyEvent) -> Bool {
         return lhs.key == rhs.key && lhs.modifiers == rhs.modifiers
+    }
+ 
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(key)
+        hasher.combine(modifiers.rawValue)
     }
 }
