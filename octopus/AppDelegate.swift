@@ -28,11 +28,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var launchbar: KeyToKey?
     var launchbarShift: KeyToKey?
     var capsLockMonitor: CapsLockMonitor?
-    var metrics: Metrics?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-        statusItem.title = "Octopus"
+        statusItem.button?.title = "Octopus"
         statusItem.menu = statusMenu
         // Insert code here to initialize your application
         //        func acquirePrivileges() -> Bool {
@@ -67,15 +66,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func startTapping () {
         class TabMode: Modal {
 
-            override var redZone: Double {
-                get {
-                    return 0.0
-                }
-                set {
-                    self.redZone = 0.0
-                }
-            }
-
             override func entered () {
                 super.entered()
                 Keyboard.keyDown(key: .command)
@@ -89,6 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         self.tabMode = TabMode(
             name: "Tabmode",
+            redZone: 0.0,
             statusIndicator: tabmodeIndicator,
             trigger: KeyEvent(key: .tab, modifiers: []),
             bindings: [
@@ -122,6 +113,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         self.homerowMode = Modal(
             name: "HomerowMode",
+            redZone: 0.05,
             statusIndicator: homerowmodeIndicator,
             trigger: KeyEvent(key: .space, modifiers: []),
             bindings: [

@@ -14,10 +14,10 @@ class KeyOverlaidModifier: Hashable {
     var triggerPressedTimestamp = Date().timeIntervalSince1970
     var wasUsed = false
     
-    var hashValue: Int {
-        return overlay.rawValue.hashValue ^ to.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(overlay.rawValue)
+        hasher.combine(to)
     }
-    
     static func == (lhs: KeyOverlaidModifier, rhs: KeyOverlaidModifier) -> Bool {
         return lhs.overlay == rhs.overlay && lhs.to == rhs.to
     }

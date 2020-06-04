@@ -107,13 +107,14 @@ class Modal {
         fieldsString = fieldsString + "| eventSourceStateID: " + String(event.getIntegerValueField(.eventSourceStateID))
         return fieldsString
     }
-    init(name: String, statusIndicator: NSButton? = nil, trigger: KeyEvent, bindings: [KeyEvent: KeyEvent], overlaidModifiers: [KeyEvent: KeyOverlaidModifier] = [:]) {
+    init(name: String, redZone: Double, statusIndicator: NSButton? = nil, trigger: KeyEvent, bindings: [KeyEvent: KeyEvent], overlaidModifiers: [KeyEvent: KeyOverlaidModifier] = [:]) {
         self.name = name
         self.trigger = trigger
         self.bindings = bindings
         self.overlaidModifiers = overlaidModifiers
         self.statusIndicator = statusIndicator
-
+        self.redZone = redZone
+        
         func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, userInfo: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
             let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
             let thisModal = Unmanaged<Modal>.fromOpaque(userInfo!).takeUnretainedValue()
