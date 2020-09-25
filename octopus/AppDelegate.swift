@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-        statusItem.button?.title = "Octopus"
+        statusItem.button?.title = "🐙"
         statusItem.menu = statusMenu
         // Insert code here to initialize your application
         //        func acquirePrivileges() -> Bool {
