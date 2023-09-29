@@ -3,39 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE6CFE921E771C0D0024C8EE /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE911E771C0D0024C8EE /* Modal.swift */; };
-		CE6CFE941E771C5C0024C8EE /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE931E771C5C0024C8EE /* KeyEvent.swift */; };
-		CE6CFE961E771C840024C8EE /* KeyOverlaidModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE951E771C840024C8EE /* KeyOverlaidModifier.swift */; };
-		CE6CFE981E771C9B0024C8EE /* KeyToKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE971E771C9B0024C8EE /* KeyToKey.swift */; };
-		CE6CFE9A1E7721440024C8EE /* CaplockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE991E7721440024C8EE /* CaplockMonitor.swift */; };
-		CE6CFE9C1E7721750024C8EE /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CFE9B1E7721750024C8EE /* Keyboard.swift */; };
-		CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */; };
-		CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */; };
-		CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */; };
-		CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA25A921E68A227008FB6A6 /* KeyCode.swift */; };
+		CEB1F84827FA0CF600D07AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F84727FA0CF600D07AEC /* AppDelegate.swift */; };
+		CEB1F84A27FA0CF600D07AEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F84927FA0CF600D07AEC /* ViewController.swift */; };
+		CEB1F84C27FA0CF700D07AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB1F84B27FA0CF700D07AEC /* Assets.xcassets */; };
+		CEB1F85D27FA0D3000D07AEC /* KeyOverlaidModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85627FA0D3000D07AEC /* KeyOverlaidModifier.swift */; };
+		CEB1F85E27FA0D3000D07AEC /* CaplockMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85727FA0D3000D07AEC /* CaplockMonitor.swift */; };
+		CEB1F85F27FA0D3000D07AEC /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85827FA0D3000D07AEC /* Keyboard.swift */; };
+		CEB1F86027FA0D3000D07AEC /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85927FA0D3000D07AEC /* KeyEvent.swift */; };
+		CEB1F86127FA0D3000D07AEC /* KeyToKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85A27FA0D3000D07AEC /* KeyToKey.swift */; };
+		CEB1F86227FA0D3000D07AEC /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85B27FA0D3000D07AEC /* Modal.swift */; };
+		CEB1F86327FA0D3000D07AEC /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F85C27FA0D3000D07AEC /* KeyCode.swift */; };
+		CEB1F86527FA12D900D07AEC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1F86427FA12D900D07AEC /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE6CFE911E771C0D0024C8EE /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
-		CE6CFE931E771C5C0024C8EE /* KeyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyEvent.swift; sourceTree = "<group>"; };
-		CE6CFE951E771C840024C8EE /* KeyOverlaidModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyOverlaidModifier.swift; sourceTree = "<group>"; };
-		CE6CFE971E771C9B0024C8EE /* KeyToKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyToKey.swift; sourceTree = "<group>"; };
-		CE6CFE991E7721440024C8EE /* CaplockMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaplockMonitor.swift; sourceTree = "<group>"; };
-		CE6CFE9B1E7721750024C8EE /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
-		CE8CEAF51E646B2C00E3B034 /* octopus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = octopus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE8CEAFD1E646B2D00E3B034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CE8CEAFF1E646B2D00E3B034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA25A921E68A227008FB6A6 /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		CEB1F84427FA0CF600D07AEC /* Octopus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Octopus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1F84727FA0CF600D07AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEB1F84927FA0CF600D07AEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEB1F84B27FA0CF700D07AEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEB1F85027FA0CF700D07AEC /* octopus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = octopus.entitlements; sourceTree = "<group>"; };
+		CEB1F85627FA0D3000D07AEC /* KeyOverlaidModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyOverlaidModifier.swift; sourceTree = "<group>"; };
+		CEB1F85727FA0D3000D07AEC /* CaplockMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaplockMonitor.swift; sourceTree = "<group>"; };
+		CEB1F85827FA0D3000D07AEC /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		CEB1F85927FA0D3000D07AEC /* KeyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyEvent.swift; sourceTree = "<group>"; };
+		CEB1F85A27FA0D3000D07AEC /* KeyToKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyToKey.swift; sourceTree = "<group>"; };
+		CEB1F85B27FA0D3000D07AEC /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		CEB1F85C27FA0D3000D07AEC /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		CEB1F86427FA12D900D07AEC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CEC0BCAD27FA1B2500E88D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE8CEAF21E646B2C00E3B034 /* Frameworks */ = {
+		CEB1F84127FA0CF600D07AEC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,36 +48,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE8CEAEC1E646B2C00E3B034 = {
+		CEB1F83B27FA0CF600D07AEC = {
 			isa = PBXGroup;
 			children = (
-				CE8CEAF71E646B2C00E3B034 /* octopus */,
-				CE8CEAF61E646B2C00E3B034 /* Products */,
+				CEB1F84627FA0CF600D07AEC /* octopus */,
+				CEB1F84527FA0CF600D07AEC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CE8CEAF61E646B2C00E3B034 /* Products */ = {
+		CEB1F84527FA0CF600D07AEC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE8CEAF51E646B2C00E3B034 /* octopus.app */,
+				CEB1F84427FA0CF600D07AEC /* Octopus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE8CEAF71E646B2C00E3B034 /* octopus */ = {
+		CEB1F84627FA0CF600D07AEC /* octopus */ = {
 			isa = PBXGroup;
 			children = (
-				CEA25A921E68A227008FB6A6 /* KeyCode.swift */,
-				CE6CFE9B1E7721750024C8EE /* Keyboard.swift */,
-				CE8CEAF81E646B2C00E3B034 /* AppDelegate.swift */,
-				CE6CFE971E771C9B0024C8EE /* KeyToKey.swift */,
-				CE6CFE951E771C840024C8EE /* KeyOverlaidModifier.swift */,
-				CE6CFE911E771C0D0024C8EE /* Modal.swift */,
-				CE6CFE931E771C5C0024C8EE /* KeyEvent.swift */,
-				CE6CFE991E7721440024C8EE /* CaplockMonitor.swift */,
-				CE8CEAFA1E646B2C00E3B034 /* Assets.xcassets */,
-				CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */,
-				CE8CEAFF1E646B2D00E3B034 /* Info.plist */,
+				CEC0BCAD27FA1B2500E88D29 /* Info.plist */,
+				CEB1F84727FA0CF600D07AEC /* AppDelegate.swift */,
+				CEB1F84927FA0CF600D07AEC /* ViewController.swift */,
+				CEB1F85727FA0D3000D07AEC /* CaplockMonitor.swift */,
+				CEB1F85827FA0D3000D07AEC /* Keyboard.swift */,
+				CEB1F85C27FA0D3000D07AEC /* KeyCode.swift */,
+				CEB1F85927FA0D3000D07AEC /* KeyEvent.swift */,
+				CEB1F85627FA0D3000D07AEC /* KeyOverlaidModifier.swift */,
+				CEB1F85A27FA0D3000D07AEC /* KeyToKey.swift */,
+				CEB1F86427FA12D900D07AEC /* main.swift */,
+				CEB1F85B27FA0D3000D07AEC /* Modal.swift */,
+				CEB1F84B27FA0CF700D07AEC /* Assets.xcassets */,
+				CEB1F85027FA0CF700D07AEC /* octopus.entitlements */,
 			);
 			path = octopus;
 			sourceTree = "<group>";
@@ -82,109 +87,98 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE8CEAF41E646B2C00E3B034 /* octopus */ = {
+		CEB1F84327FA0CF600D07AEC /* Octopus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8CEB021E646B2D00E3B034 /* Build configuration list for PBXNativeTarget "octopus" */;
+			buildConfigurationList = CEB1F85327FA0CF700D07AEC /* Build configuration list for PBXNativeTarget "Octopus" */;
 			buildPhases = (
-				CE8CEAF11E646B2C00E3B034 /* Sources */,
-				CE8CEAF21E646B2C00E3B034 /* Frameworks */,
-				CE8CEAF31E646B2C00E3B034 /* Resources */,
+				CEB1F84027FA0CF600D07AEC /* Sources */,
+				CEB1F84127FA0CF600D07AEC /* Frameworks */,
+				CEB1F84227FA0CF600D07AEC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = octopus;
-			productName = octopus;
-			productReference = CE8CEAF51E646B2C00E3B034 /* octopus.app */;
+			name = Octopus;
+			productName = Octopus;
+			productReference = CEB1F84427FA0CF600D07AEC /* Octopus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE8CEAED1E646B2C00E3B034 /* Project object */ = {
+		CEB1F83C27FA0CF600D07AEC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 1150;
-				ORGANIZATIONNAME = Betafabric;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					CE8CEAF41E646B2C00E3B034 = {
-						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1150;
-						ProvisioningStyle = Automatic;
+					CEB1F84327FA0CF600D07AEC = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
-			buildConfigurationList = CE8CEAF01E646B2C00E3B034 /* Build configuration list for PBXProject "octopus" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = CEB1F83F27FA0CF600D07AEC /* Build configuration list for PBXProject "octopus" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CE8CEAEC1E646B2C00E3B034;
-			productRefGroup = CE8CEAF61E646B2C00E3B034 /* Products */;
+			mainGroup = CEB1F83B27FA0CF600D07AEC;
+			productRefGroup = CEB1F84527FA0CF600D07AEC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE8CEAF41E646B2C00E3B034 /* octopus */,
+				CEB1F84327FA0CF600D07AEC /* Octopus */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE8CEAF31E646B2C00E3B034 /* Resources */ = {
+		CEB1F84227FA0CF600D07AEC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8CEAFB1E646B2C00E3B034 /* Assets.xcassets in Resources */,
-				CE8CEAFE1E646B2D00E3B034 /* MainMenu.xib in Resources */,
+				CEB1F84C27FA0CF700D07AEC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE8CEAF11E646B2C00E3B034 /* Sources */ = {
+		CEB1F84027FA0CF600D07AEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6CFE9A1E7721440024C8EE /* CaplockMonitor.swift in Sources */,
-				CE6CFE981E771C9B0024C8EE /* KeyToKey.swift in Sources */,
-				CE6CFE9C1E7721750024C8EE /* Keyboard.swift in Sources */,
-				CE6CFE941E771C5C0024C8EE /* KeyEvent.swift in Sources */,
-				CEA25A931E68A227008FB6A6 /* KeyCode.swift in Sources */,
-				CE6CFE921E771C0D0024C8EE /* Modal.swift in Sources */,
-				CE8CEAF91E646B2C00E3B034 /* AppDelegate.swift in Sources */,
-				CE6CFE961E771C840024C8EE /* KeyOverlaidModifier.swift in Sources */,
+				CEB1F85E27FA0D3000D07AEC /* CaplockMonitor.swift in Sources */,
+				CEB1F84A27FA0CF600D07AEC /* ViewController.swift in Sources */,
+				CEB1F86027FA0D3000D07AEC /* KeyEvent.swift in Sources */,
+				CEB1F86227FA0D3000D07AEC /* Modal.swift in Sources */,
+				CEB1F85F27FA0D3000D07AEC /* Keyboard.swift in Sources */,
+				CEB1F86127FA0D3000D07AEC /* KeyToKey.swift in Sources */,
+				CEB1F86527FA12D900D07AEC /* main.swift in Sources */,
+				CEB1F84827FA0CF600D07AEC /* AppDelegate.swift in Sources */,
+				CEB1F86327FA0D3000D07AEC /* KeyCode.swift in Sources */,
+				CEB1F85D27FA0D3000D07AEC /* KeyOverlaidModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		CE8CEAFC1E646B2D00E3B034 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE8CEAFD1E646B2D00E3B034 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		CE8CEB001E646B2D00E3B034 /* Debug */ = {
+		CEB1F85127FA0CF700D07AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -200,18 +194,19 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -225,25 +220,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		CE8CEB011E646B2D00E3B034 /* Release */ = {
+		CEB1F85227FA0CF700D07AEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -259,18 +255,19 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -278,40 +275,69 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
-		CE8CEB031E646B2D00E3B034 /* Debug */ = {
+		CEB1F85427FA0CF700D07AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = octopus/octopus.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				EXCLUDED_ARCHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = octopus/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.betafabric.octopus;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = franciscolourenco.octopus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		CE8CEB041E646B2D00E3B034 /* Release */ = {
+		CEB1F85527FA0CF700D07AEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = octopus/octopus.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				EXCLUDED_ARCHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = octopus/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.betafabric.octopus;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = franciscolourenco.octopus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -319,25 +345,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE8CEAF01E646B2C00E3B034 /* Build configuration list for PBXProject "octopus" */ = {
+		CEB1F83F27FA0CF600D07AEC /* Build configuration list for PBXProject "octopus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE8CEB001E646B2D00E3B034 /* Debug */,
-				CE8CEB011E646B2D00E3B034 /* Release */,
+				CEB1F85127FA0CF700D07AEC /* Debug */,
+				CEB1F85227FA0CF700D07AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8CEB021E646B2D00E3B034 /* Build configuration list for PBXNativeTarget "octopus" */ = {
+		CEB1F85327FA0CF700D07AEC /* Build configuration list for PBXNativeTarget "Octopus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE8CEB031E646B2D00E3B034 /* Debug */,
-				CE8CEB041E646B2D00E3B034 /* Release */,
+				CEB1F85427FA0CF700D07AEC /* Debug */,
+				CEB1F85527FA0CF700D07AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE8CEAED1E646B2C00E3B034 /* Project object */;
+	rootObject = CEB1F83C27FA0CF600D07AEC /* Project object */;
 }

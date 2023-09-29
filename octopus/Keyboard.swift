@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 class Keyboard {
     static func changeKey(key: KeyCode, modifiers: CGEventFlags = [], keyDown: Bool) {

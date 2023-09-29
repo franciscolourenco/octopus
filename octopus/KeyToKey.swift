@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 let relevantMask: CGEventFlags = [.maskCommand, .maskShift, .maskAlternate, .maskControl, .maskHelp, .maskAlphaShift, .maskNumericPad]
 

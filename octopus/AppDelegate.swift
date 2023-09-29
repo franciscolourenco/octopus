@@ -7,61 +7,44 @@
 //
 
 import Cocoa
-import Foundation
 
-@NSApplicationMain
+//@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var debugWindow: NSWindow!
-    @IBOutlet weak var homerowmodeIndicator: NSButton!
-    @IBOutlet weak var tabmodeIndicator: NSButton!
-    @IBOutlet weak var statusMenu: NSMenu!
-
-    @IBAction func quitClicked(_ sender: NSMenuItem) {
-        NSApplication.shared.terminate(self)
-    }
-
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
+    var statusItem: NSStatusItem!
     var tabMode: Modal?
     var homerowMode: Modal?
     var launchbar: KeyToKey?
     var launchbarShift: KeyToKey?
     var capsLockMonitor: CapsLockMonitor?
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "🐙"
-        statusItem.menu = statusMenu
-        // Insert code here to initialize your application
-        //        func acquirePrivileges() -> Bool {
-        //            let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
-        //            let privOptions: NSDictionary = [trusted as NSString: true]
-        //            let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
-        //            if !accessEnabled {
-        //                let alert = NSAlert()
-        //                alert.messageText = "Enable Octopus"
-        //                alert.informativeText = "Once you have enabled Octopus in System Preferences, click OK."
-        //                alert.beginSheetModal(for: self.window, completionHandler: { response in
-        //                    if AXIsProcessTrustedWithOptions(privOptions) {
-        //                        print("already have priviledges")
-        //                    } else {
-        //                        NSApp.terminate(self)
-        //                    }
-        //                })
-        //            }
-        //            return accessEnabled
-        //        }
-        //        if acquirePrivileges() {
+        setupMenus()
         startTapping()
-        //        } else {
-        //            exit(1)
-        //        }
+
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        return true
+    }
+    func setupMenus() {
+            let menu = NSMenu()
+            menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+            statusItem.menu = menu
+    }
+    private func changeStatusBarButton(number: Int) {
+        if let button = statusItem.button {
+            button.image = NSImage(systemSymbolName: "\(number).circle", accessibilityDescription: number.description)
+        }
+    }
+
 
     func startTapping () {
         class TabMode: Modal {
@@ -80,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.tabMode = TabMode(
             name: "Tabmode",
             redZone: 0.0,
-            statusIndicator: tabmodeIndicator,
+//            statusIndicator: tabmodeIndicator,
             trigger: KeyEvent(key: .tab, modifiers: []),
             bindings: [
                 KeyEvent(key: .l, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskCommand]),
@@ -101,10 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 KeyEvent(key: .h, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
                 KeyEvent(key: .n, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand, .maskShift]),
                 KeyEvent(key: .slash, modifiers: []): KeyEvent(key: .f, modifiers: [.maskCommand]),
-//                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .w, modifiers: [.maskCommand]),
-//                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .t, modifiers: [.maskCommand]),
-//                KeyEvent(key: .k, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
-            //                KeyEvent(key: .i, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommanlllld, .maskAlternate]),
+
             ],
             overlaidModifiers: [
                 KeyEvent(key: .f, modifiers: []): KeyOverlaidModifier(overlay: [.maskCommand], to: KeyEvent(key: .alpha1, modifiers: []))
@@ -114,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.homerowMode = Modal(
             name: "HomerowMode",
             redZone: 0.05,
-            statusIndicator: homerowmodeIndicator,
+//            statusIndicator: homerowmodeIndicator,
             trigger: KeyEvent(key: .space, modifiers: []),
             bindings: [
                 KeyEvent(key: .l, modifiers: []): KeyEvent(key: .rightArrow, modifiers: []),
@@ -148,10 +128,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
 
         //        This is used as a hack to transform the caps lock into an "hyper key"
-        self.launchbar = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: []), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate]))
-        self.launchbarShift = KeyToKey(fromKey: KeyEvent(key: .international, modifiers: [.maskShift]), toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate, .maskShift]))
+//        self.launchbar = KeyToKey(
+//            fromKey: KeyEvent(key: .international, modifiers: []),
+//            toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate])
+//        )
+//        self.launchbarShift = KeyToKey(
+//            fromKey: KeyEvent(key: .international, modifiers: [.maskShift]),
+//            toKey: KeyEvent(key: .l, modifiers:[.maskCommand, .maskAlternate, .maskShift])
+//        )
+//        self.launchbarShift = KeyToKey(
+//            fromKey: KeyEvent(key: .international, modifiers: [.maskShift]),
+//            toKey: KeyEvent(key: .p, modifiers:[.maskCommand, .maskShift])
+//        )
+
 //        self.launchbar = KeyToKey(fromKey: KeyEvent(key: .m, modifiers: []), toKey: KeyEvent(key: .n, modifiers:[]))
 
         // self.metrics = Metrics()
     }
+
 }
+
