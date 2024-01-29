@@ -74,8 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 KeyEvent(key: .quote, modifiers: []): KeyEvent(key: .q, modifiers: [.maskCommand]),
 
                 // Old System
-                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .rightArrow, modifiers: [.maskCommand, .maskAlternate]),
-                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .leftArrow, modifiers: [.maskCommand, .maskAlternate]),
+                KeyEvent(key: .o, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskControl, .maskCommand, .maskAlternate]),
+                KeyEvent(key: .u, modifiers: []): KeyEvent(key: .tab, modifiers: [.maskControl, .maskCommand, .maskAlternate, .maskShift]),
                 KeyEvent(key: .i, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand]),
                 KeyEvent(key: .k, modifiers: []): KeyEvent(key: .backtick, modifiers: [.maskCommand, .maskShift]),
 
